@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML Quiz</title>
+<style>
+    body { font-family: Arial, sans-serif; padding: 20px; background-color: #f0f2f5; }
+    button { padding: 10px 20px; cursor: pointer; margin-top: 20px; }
+    .question { margin-bottom: 20px; }
+</style>
+</head>
+<body>
+<h1>HTML Quiz</h1>
+
+<div class="question">
+    <p>1. Which tag is used for a paragraph?</p>
+    <input type="radio" name="q1" value="a"> &lt;div&gt;<br>
+    <input type="radio" name="q1" value="b"> &lt;p&gt;<br>
+    <input type="radio" name="q1" value="c"> &lt;span&gt;<br>
+</div>
+
+<div class="question">
+    <p>2. Which tag is used to create a link?</p>
+    <input type="radio" name="q2" value="a"> &lt;a&gt;<br>
+    <input type="radio" name="q2" value="b"> &lt;link&gt;<br>
+    <input type="radio" name="q2" value="c"> &lt;href&gt;<br>
+</div>
+
+<button onclick="checkQuiz()">Submit Answers</button>
+
+<p id="result"></p>
+
+<script>
+function checkQuiz() {
+    const q1 = document.querySelector('input[name="q1"]:checked')?.value;
+    const q2 = document.querySelector('input[name="q2"]:checked')?.value;
+
+    if(q1 === 'b' && q2 === 'a') {
+        document.getElementById('result').innerHTML = "✅ Correct! Proceed to CSS topic.";
+        setTimeout(() => { location.href = 'css.html'; }, 2000);
+    } else {
+        document.getElementById('result').innerHTML = "❌ Some answers are wrong. Try again!";
+    }
+}
+</script>
+</body>
+</html>

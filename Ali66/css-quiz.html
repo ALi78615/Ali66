@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Quiz</title>
+<style>
+    body { font-family: Arial, sans-serif; padding: 20px; background-color: #f0f2f5; }
+    button { padding: 10px 20px; cursor: pointer; margin-top: 20px; }
+    .question { margin-bottom: 20px; }
+</style>
+</head>
+<body>
+<h1>CSS Quiz</h1>
+
+<div class="question">
+    <p>1. How do you change text color to blue?</p>
+    <input type="radio" name="q1" value="a"> color: red;<br>
+    <input type="radio" name="q1" value="b"> color: blue;<br>
+    <input type="radio" name="q1" value="c"> font-color: blue;<br>
+</div>
+
+<div class="question">
+    <p>2. Which property changes font size?</p>
+    <input type="radio" name="q2" value="a"> font-size<br>
+    <input type="radio" name="q2" value="b"> text-size<br>
+    <input type="radio" name="q2" value="c"> size-font<br>
+</div>
+
+<button onclick="checkQuiz()">Submit Answers</button>
+<p id="result"></p>
+
+<script>
+function checkQuiz() {
+    const q1 = document.querySelector('input[name="q1"]:checked')?.value;
+    const q2 = document.querySelector('input[name="q2"]:checked')?.value;
+
+    if(q1 === 'b' && q2 === 'a') {
+        document.getElementById('result').innerHTML = "✅ Correct! Proceed to JavaScript topic.";
+        setTimeout(() => { location.href = 'js.html'; }, 2000);
+    } else {
+        document.getElementById('result').innerHTML = "❌ Some answers are wrong. Try again!";
+    }
+}
+</script>
+</body>
+</html>
